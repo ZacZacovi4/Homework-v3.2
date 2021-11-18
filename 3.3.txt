@@ -1,0 +1,66 @@
+using System;
+
+namespace _3._2._3
+{
+
+    public enum AccountType { Current = 1, Savings }
+    public class BankAccount
+    {
+        private int _AccountNumber;
+        private int _Balance;
+        private AccountType _Type;
+
+
+        public BankAccount()
+        {
+            Random rnd = new Random();
+            _AccountNumber = rnd.Next(1000000000, int.MaxValue);
+        }
+
+        public BankAccount(int balance) //: this()
+        {
+            _Balance = balance;
+        }
+
+        public BankAccount(AccountType Type) //: this()
+        {
+            _Type = AccountType.Current;
+        }
+
+        public BankAccount(int balance, AccountType Type) : this()
+        {
+            _Balance = balance;
+            _Type = AccountType.Current;
+            Console.WriteLine("Тип банковского аккаунта: " + (_Type) + ", Номер счета: " + (_AccountNumber) + ", Баланс: " + (_Balance));
+        }
+
+        //public void GetInfo()
+        //{
+            //Console.WriteLine("Тип банковского аккаунта: " + (_Type) + ", номер счета: " + (_AccountNumber) + ", Баланс: " + (_Balance));
+        //}
+
+
+        public static void Main()
+        {
+
+            Console.WriteLine("Введите количество денег на счету: ");
+
+            var input = int.Parse(Console.ReadLine());
+
+
+            //BankAccount bankAccount = new BankAccount(input);
+
+            //BankAccount bankAccount2 = new BankAccount(AccountType.Current);
+
+            BankAccount bankAccount3 = new BankAccount(input, AccountType.Current); ;
+
+
+
+        }
+
+
+
+
+    }
+
+}

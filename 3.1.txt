@@ -1,0 +1,52 @@
+using System;
+
+namespace _3._2._1
+{
+
+    public enum AccountType { Current, Savings }
+    public class BankAccount
+    {
+        private int _AccountNumber;
+        private int _Balance;
+        private AccountType _Type;
+
+        public int AccountNumber
+        {
+            get { return _AccountNumber; }
+            set { _AccountNumber = value; }
+        }
+        public int Balance
+        {
+            get { return _Balance; }
+            set { _Balance = value; }
+        }
+        public AccountType Type
+        {
+            get { return _Type; }
+            set { _Type = value; }
+        }
+
+    }
+    class Program
+    {
+
+
+        static void Main()
+        {
+            BankAccount bankAccount = new BankAccount();
+
+            Console.WriteLine("Введите номер аккаунта: ");
+            bankAccount.AccountNumber = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Введите количество денег на счету: ");
+            bankAccount.Balance = int.Parse(Console.ReadLine());
+
+            bankAccount.Type = AccountType.Current;
+
+            Console.WriteLine(bankAccount.Type);
+            Console.WriteLine("Тип банковского аккаунта " + bankAccount.Type + ", номер счета " + bankAccount.AccountNumber + ", количество " + bankAccount.Balance);
+            Console.ReadKey();
+
+        }
+    }
+}
